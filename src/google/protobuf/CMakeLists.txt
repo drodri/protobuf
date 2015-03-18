@@ -1,13 +1,9 @@
-# The one and only required CMake script to build protoc and/or library
-
-# Basic configuration
 IF(NOT WIN32)
 	FIND_PACKAGE(Threads REQUIRED)
 	SET(HAVE_PTHREAD CMAKE_HAVE_PTHREAD_H)
 ENDIF()
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmakeconfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-INIT_BIICODE_BLOCK()
 ADD_BIICODE_TARGETS()
 
 if(TARGET google_protobuf_compiler_main) # rename 2 protoc
